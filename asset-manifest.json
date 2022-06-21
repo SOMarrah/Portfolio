@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/Portfolio/static/css/main.0ad27138.css",
+    "main.js": "/Portfolio/static/js/main.25d6a29d.js",
+    "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
+    "static/media/magicBook.png": "/Portfolio/static/media/magicBook.720321dc4e92ffd80008.png",
+    "index.html": "/Portfolio/index.html",
+    "main.0ad27138.css.map": "/Portfolio/static/css/main.0ad27138.css.map",
+    "main.25d6a29d.js.map": "/Portfolio/static/js/main.25d6a29d.js.map",
+    "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0ad27138.css",
+    "static/js/main.25d6a29d.js"
+  ]
+}
