@@ -11,7 +11,7 @@ import AboutTypeWriter from './AboutTypewriter'
 
 export default function Room2({ ...props }) {
   const group = useRef()
-  const { nodes, materials } = useGLTF('/public/Room2.glb')
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + '/Room2.glb')
   const linkInNewTab = url => {
     window.open(url, '_blank', 'noopener, noreferrer')
     return console.log(`Opening a link to: ${url}`);;
