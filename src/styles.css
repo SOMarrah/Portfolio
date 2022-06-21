@@ -1,0 +1,194 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  background-color: #353333;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #f0f0f0;
+}
+.textStyle{
+  width: 12rem;
+  height: 2.4rem;
+  background: rgba(0, 151, 19, 0.3);
+  margin: 0 auto;
+  text-align: center;
+  font-style: italic;
+  text-shadow: 2px 2px 5px black;
+}
+#container{
+  width: 8rem;
+  height: 5rem;
+  position:relative;
+  opacity: 0.5;
+  transition: all 300ms;
+}
+
+.spellBook{
+  width: 8rem;
+  height: 6rem;
+  
+  text-align: center;
+  margin: 0 auto;
+  font-size: x-small;
+  
+}
+
+#container:hover{
+  opacity: 1;
+}
+
+#spells{
+  color: rgb(0, 0, 0);
+  font-size: .5em;
+  font-family: 'Trattatello', fantasy;
+  font-weight:normal;
+  font-style:normal;
+  position: absolute;
+  top: 1rem;
+  left: 2rem;
+  z-index: 9;
+  
+}
+.spellEffects{
+  text-align: center;
+  margin: 0 auto;
+  padding-bottom: .3rem;
+  transition: all 300ms;
+  transition-timing-function: ease-in-out;
+  opacity: .2;
+  
+}
+.spellEffects:hover{
+  color: azure;
+  text-shadow:  #fff 0 0 5px, #fcffbb 0 0 8px, #1f1f1d 0 0 5px;
+  opacity: 1;
+  transform: scale(2.5);
+}
+
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap");
+
+.projectImage {
+    width: 100%;
+    border-radius: 12px;
+    height: 214px;
+    object-fit: cover;
+  }
+
+  .project {
+    background-color: #eaeff1;
+    font-family: "Raleway", sans-serif;
+    height: 150px;
+    width: 155px;
+    border: 2px solid black;
+    overflow: hidden;
+    padding: 3px;
+  }
+  #backButton{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
+  }
+  #projectContainer {
+    background-color: #788697;
+    margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    flex-basis: 20px;
+    transform: scale(.20);
+    transform-origin: top left;
+    overflow: scroll;
+    width: 725px;
+    }
+  .card:nth-child(n) {
+    order: 0;
+    flex: 0 1 200px;
+    align-self: auto;
+    /* Change background color */
+    background-color: rgba(255, 255, 255, 0.591);
+    /* Add border */
+    border: 1px solid #767373c1;
+    /* Add space between the border and the content */
+    padding: 8px;
+    border-radius: 12px;
+    transition: all ease-in-out 250ms;
+    max-width: 200px;
+    min-width: 200px;
+    overflow: hidden;
+    margin: 10px;
+  }
+/* Style div elements that have class equal to tag */
+.tag {
+    padding: 4px 8px;
+    border: 1px solid #e5eaed;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #788697;
+  }
+  
+  /* Style div elements that have class equal to name */
+  .name {
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 16px;
+  }
+  
+  /* Style p element */
+  p {
+    font-size: 14px;
+    color: #7f8c9b;
+    word-break: break-all;
+  }
+  
+  /* Style button element */
+  button {
+    border: none;
+    padding: 12px 24px;
+    border-radius: 50px;
+    font-weight: 600;
+    color: #0077ff;
+    background-color: #e0efff;
+    /* Button is inline-block element by default, it need to have block display for margin: 0 auto; to work */
+    margin: 0 auto;
+    display: block;
+    /* Button is a clickable element, therefore it should have a pointer cursor */
+    cursor: pointer;
+  }
+  
+  .card__details {
+    /* Add space around the details */
+    padding: 16px 8px 8px 8px;
+  }
+
+/* Add style when button is focused or hovered */
+button:focus,
+button:hover {
+  background-color: #0077ff;
+  color: #e0efff;
+}
+.card:hover{
+    box-shadow: 5px 5px 5px #0c0c0c;
+}
+#typewriter{
+  display: flex;
+  min-width: 300px;
+    font-family: "Raleway", sans-serif;
+    overflow: hidden;
+    padding: 3px;
+}
