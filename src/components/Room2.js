@@ -5,6 +5,10 @@ import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import Project from './Project'
 import AboutTypeWriter from './AboutTypewriter'
+import Text from './Text'
+//Images
+import absalom from "../portfolioImages/absalom.jpeg"
+
 
 
 export default function Room2({ ...props }) {
@@ -25,7 +29,7 @@ export default function Room2({ ...props }) {
       </group>
       <group position={[4.25, 6.74, 7.36]} rotation={[0, -Math.PI / 2, 0]} scale={[2.53, 0.15, 4.15]}>
         <mesh geometry={nodes.Cube001.geometry} material={materials['Table bottom']}castShadow />
-        <mesh geometry={nodes.Cube001_1.geometry} material={materials['Table top']} castShadow receiveShadow/>
+        <mesh geometry={nodes.Cube001_1.geometry} material={materials['Table top']} castShadow />
         <mesh geometry={nodes.Cube001_2.geometry} material={materials['Game Area']} castShadow />
         <mesh geometry={nodes.Cube001_3.geometry} material={materials['Game border']}castShadow />
       </group>
@@ -61,13 +65,26 @@ export default function Room2({ ...props }) {
         <mesh geometry={nodes.Cube018_1.geometry} material={materials.InsideFrame} />
       </group>
       <group position={[-12.11, 6.71, 6.71]} scale={[0.09, 0.67, 0.87]}>
-        <mesh geometry={nodes.Cube019.geometry} material={materials.FrameColor} />
-        <AboutTypeWriter position={[0,4,0]} rotation={[0,Math.PI/2,0]} scale={5}/>
+        <mesh geometry={nodes.Cube019.geometry} material={materials.FrameColor} >
+        
+        </mesh>
+        <AboutTypeWriter position={[4,2,6.3]} rotation={[0,Math.PI/2,0]} scale={.5} start={props.start}/>
         <mesh geometry={nodes.Cube019_1.geometry} material={materials.InsideFrame} />
       </group>
       <group position={[-12.11, 5.53, 9.17]} scale={[0.09, 0.67, 0.87]}>
         <mesh geometry={nodes.Cube020.geometry} material={materials.FrameColor} onClick={props.cameraAbout}/>
-        <mesh geometry={nodes.Cube020_1.geometry} material={materials.InsideFrame} />
+        <mesh geometry={nodes.Cube020_1.geometry} material={materials.InsideFrame} >
+          <mesh>
+          <Text position={[1,0,0]} rotation={[0,Math.PI/2,0]} scale={.6} >
+        <img className='aboutMeImgs'
+            src={absalom}
+            height="90"
+            width="90"
+            alt="Cute Doggo"
+                  />
+                  </Text>
+                  </mesh>
+          </mesh>
       </group>
       <mesh geometry={nodes.Keyboard.geometry} material={materials['Material.011']} position={[-10.14, 7.13, 1.44]} rotation={[0, Math.PI / 2, 0]} scale={[1.29, 0.07, 0.47]} castShadow />
     </group>

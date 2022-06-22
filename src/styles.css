@@ -76,11 +76,15 @@ body {
 
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap");
 
-.projectImage {
-    width: 100%;
-    border-radius: 12px;
-    height: 214px;
-    object-fit: cover;
+#backButton{
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 5px;
   }
 
   .project {
@@ -92,16 +96,7 @@ body {
     overflow: hidden;
     padding: 3px;
   }
-  #backButton{
-  background-color: #4CAF50; /* Green */
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 5px;
-  }
+  
   #projectContainer {
     background-color: #788697;
     margin: 0 auto;
@@ -132,30 +127,27 @@ body {
     overflow: hidden;
     margin: 10px;
   }
+
+  .projectImage {
+    width: 100%;
+    border-radius: 12px;
+    height: 400px;
+    object-fit: cover;
+
+    margin: 0 auto;
+    
+  }
 /* Style div elements that have class equal to tag */
 .tag {
-    padding: 4px 8px;
+    padding: 4px 2px 4px;
     border: 1px solid #e5eaed;
     border-radius: 50px;
-    font-size: 12px;
+    font-size: 15px;
     font-weight: 600;
-    color: #788697;
-  }
-  
-  /* Style div elements that have class equal to name */
-  .name {
-    font-size: 24px;
-    font-weight: 600;
-    margin-top: 16px;
-  }
-  
-  /* Style p element */
-  p {
-    font-size: 14px;
-    color: #7f8c9b;
+    color: #4b4e52;
     word-break: break-all;
+    position: relative;
   }
-  
   /* Style button element */
   button {
     border: none;
@@ -171,10 +163,6 @@ body {
     cursor: pointer;
   }
   
-  .card__details {
-    /* Add space around the details */
-    padding: 16px 8px 8px 8px;
-  }
 
 /* Add style when button is focused or hovered */
 button:focus,
@@ -188,7 +176,13 @@ button:hover {
 #typewriter{
   display: flex;
   min-width: 300px;
+  max-width: 300px;
     font-family: "Raleway", sans-serif;
     overflow: hidden;
     padding: 3px;
+    text-shadow:  rgb(169, 167, 167) 0 0 2px, rgb(202, 200, 200) 0 0 5px;
+}
+
+.aboutMeImgs{
+  filter: brightness(60%);
 }

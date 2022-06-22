@@ -16,7 +16,7 @@ import { RectAreaLight } from 'three';
 
 
 
-// softShadows();
+softShadows();
 
 //make a function that takes the onClick from the HTML element and moves the camera.
 
@@ -49,16 +49,15 @@ function  SkillsCamera(props){
   useEffect(() => {
     if(get().camera.name === "SkillCam"){
       console.log("Skills");
-      camera.lookAt(3.5,0,3.5);
+      camera.lookAt(3.6,0,3.5);
       camera.rotateZ(Math.PI/3.0)
-      
     }
     return () => console.log("unmounting skill cam")
   }, [camera]);
   // Update it every frame
   useFrame(() => ref.current.updateMatrixWorld())
   return(
-    <OrthographicCamera {...props} ref={ref} name="SkillCam"/>
+    <OrthographicCamera {...props} ref={ref} name="SkillCam" />
   )
 }
 
@@ -69,7 +68,7 @@ function AboutCamera(props){
   useEffect(()=> {
     if(get().camera.name === "AboutCam"){
       console.log('About Camera')
-      camera.lookAt(-6,1.5,4)
+      camera.lookAt(-6,1.5,5)
       
     }
     return () => console.log("unmounting about cam")
@@ -89,7 +88,7 @@ export default function App() {
   const [controls, setControls] = useState(true);
   const [skills, setSkills] = useState(false);
   const [about, setAbout] = useState(false);
-  
+  const [start, setStart] = useState(false)
 
   const cameraProject = () => {
     if(project === false){
@@ -106,6 +105,7 @@ export default function App() {
     if(skills === false){
       setControls(false)
       setSkills(true)
+      
       return console.log("Switched Camera Projects")
     }else{
       setSkills(false)
@@ -118,46 +118,81 @@ export default function App() {
     if(about === false){
       setControls(false)
       setAbout(true)
+      setStart(true)
       return console.log("Switched Camera About")
     }else{
       setAbout(false)
+      setStart(false)
       setControls(true)
       return console.log("Switched Camera Default")
     }
   }
 
   return (
-      <Canvas orthographic camera={{position:[7,6,7], zoom:85, near:-150, far:300}} shadows dpr={[1, 2]} >
+      <Canvas shadows dpr={[1, 2]} >
         {/* <TestArea/> */}
-        <directionalLight intensity={.2} position={[6.3,27,0]} color={'#c2c5cc'} castShadow/>
-        <hemisphereLight intensity={0.125} color="blue" groundColor="orange" />
+        <directionalLight intensity={.04} position={[6.3,27,0]} color={'#c2c5cc'} castShadow/>
+        <hemisphereLight intensity={0.125} color="blue" groundColor="white" />
         <pointLight position={[-5, 2.8, 0]} intensity={.4} color={"#586f6a"} castShadow/>
-        <ambientLight intensity={0.01} />
-        <SpellBook />
-          <mesh position={[10,3,4]} rotation={[-.8,-.6, -.5]}>
-            
-            <Text  transform sprite position={[-.1,1,.15]}>
+        <pointLight position={[3, 1.5, 3]} intensity={.2} color={"orange"} castShadow/>
+        <ambientLight intensity={0.05} />
+        <group>
+        <OrthographicCamera
+          makeDefault
+          name="Default"
+          position={[7, 6, 7]}
+          zoom={85}
+          near={-150}
+          far={300}
+        >
+          <SpellBook />
+          <mesh
+            position={[-3, -3, 0]}
+            rotation={[-0.8, -0.6, -0.5]}
+          >
+            <Text transform sprite position={[-0.1, 1, 0.15]}>
               {/* anything iside of this will be HTML because it is a property being passed to the parent {children} */}
-              <div id='container'>
-              <div id='spells'>
-              <div className='spellEffects' onClick={(e)=>cameraAbout()}>About</div>
-              <div className='spellEffects' onClick={(e)=>cameraSkills()}>Skills</div>
-              <div className='spellEffects' onClick={(e)=>console.log('Contact')}>Contact</div>
-              <div className='spellEffects' onClick={(e)=>cameraProject()}>Projects</div>
-              </div>
-              <div className='spellBook'>
-                <img src={magicBook} height="100" width="100" alt="SpellBook"/>
+              <div id="container">
+                <div id="spells">
+                  <div className="spellEffects" onClick={(e) => cameraAbout()}>
+                    About
+                  </div>
+                  <div className="spellEffects" onClick={(e) => cameraSkills()}>
+                    Skills
+                  </div>
+                  <div
+                    className="spellEffects"
+                    onClick={(e) => console.log("Contact")}
+                  >
+                    Contact
+                  </div>
+                  <div
+                    className="spellEffects"
+                    onClick={(e) => cameraProject()}
+                  >
+                    Projects
+                  </div>
+                </div>
+                <div className="spellBook">
+                  <img
+                    src={magicBook}
+                    height="100"
+                    width="100"
+                    alt="SpellBook"
+                  />
                 </div>
               </div>
             </Text>
           </mesh>
-          <Suspense fallback={null}>
-            <Room2 scale={.5} position={[0,-2.5,0]} cameraAbout={cameraAbout} cameraProject={cameraProject} cameraSkills={cameraSkills}/>
+        </OrthographicCamera>
+      </group>
+      <Suspense fallback={null}>
+            <Room2 scale={.5} position={[0,-2.5,0]} start={start} cameraAbout={cameraAbout} cameraProject={cameraProject} cameraSkills={cameraSkills}/>
             <Room2 scale={.03} position={[1.5,.9,3.4]}/>
             <Room2 position={[-30,-70,-68]} scale={10}/>
           </Suspense>
-          <AboutCamera makeDefault={about} zoom={285} position={[-1, 1.2, 5.4]}/>
-          <SkillsCamera makeDefault={skills} zoom={1325} near={-20} position={[4.5,6,4.5]} rotation={[0,0,0]}/>
+          <AboutCamera makeDefault={about} zoom={285} position={[-1, 1.2, 5.4]} />
+          <SkillsCamera makeDefault={skills} zoom={1200} near={-20} position={[4.5,6,4.5]} left={window.innerWidth/-2} right={window.innerWidth/2} top={window.innerHeight/2} bottom={window.innerHeight/-2}/>
           <ProjectCamera makeDefault={project} zoom={395} position={[-3.7,1.6,0.6]}/>
           <OrbitControls makeDefault enabled={controls}
               minAzimuthAngle={-Math.PI/12}
