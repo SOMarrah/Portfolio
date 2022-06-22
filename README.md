@@ -94,8 +94,8 @@ Repository for my portfolio build and tests.
   ## 6/16/2022
   - I have run into some blockers regarding how to implement my camera changing positions. I might have a few ways to do it, but still need practice with R3F to really grasp it.
   - I have implemented a way to control objects in the canvas to find positions, scale, rotation, and color( I know there is more to Leva but that is what I have accomplished so far).
-  ![Leva Controls](screenshots/can%20use%20properties%20to%20set%20controls.png)
-  ![Leva Controls 2](screenshots/leva%20controls%20implemented.png)
+  ![Leva Controls](screenshots/leva%20controls%20implemented.png)
+  ![Leva Controls 2](screenshots/can%20use%20properties%20to%20set%20controls.png)
   - Leva will allow me to quickly navigate and organize each component on the scene. Since my project is a 3d 'world', knowing the placement and being able to move things exactly where I need them is crucial - this will save tons of time. (no more editing components by 1 value and waiting to see what changed!) 
   
   - I have also created the UI for my project section as a placeholder. I have cards that display an image, have tags to display what language, the title of the project, and a basic button. I did not create the styling for this, just implemented it into the scene to fit what I needed.
@@ -107,8 +107,14 @@ Repository for my portfolio build and tests.
   ![Spellbook2](screenshots/NavBar%20Html%20transparency%20fad%20in%20button%20expand%20on%20hover.png)
 
   ## Huge Updates from June 16 - June 21
+  - Started to create object in Blender. It wasn't too hard but takes a long time.
+  ![blender](screenshots/blenderStartimg.png)
   - Finally got the camera switching working. I have to make each camera update it's look position on initialization. I did this through a useEffect()  {get} to find each specific camera and make it look at a specified point. 
+  ![WorkingCamera](screenshots/workingCameraimg.png)
+  - I was able to position Html components successfully:
+  ![Html](screenshots/HtmlBehindObject.png)
   - Got the website deployed. (don't honestly know what I changed to make it happen) Has something to do with paths. (I still get error 404 when trying to load the Room2.glb on initialization but I can ignore that for now.)
+  ![Render](screenshots/FinallyRendered.png)
   - Started adding lights. Just need some basic lights to render into the scene.
   - Still need a Contact camera/method set up for people to get in touch.
-
+  - Still want to implement some easter eggs and cool user experiences.
