@@ -1,21 +1,25 @@
 {
   "files": {
-    "main.css": "/Portfolio/static/css/main.e928a3e6.css",
-    "main.js": "/Portfolio/static/js/main.cef4495f.js",
+    "main.css": "/Portfolio/static/css/main.fab3ff42.css",
+    "main.js": "/Portfolio/static/js/main.a5f72512.js",
     "static/js/787.1ed0c42c.chunk.js": "/Portfolio/static/js/787.1ed0c42c.chunk.js",
     "static/media/FinallyRendered.png": "/Portfolio/static/media/FinallyRendered.199065d538132705207d.png",
+    "static/media/beachWithHeather.jpeg": "/Portfolio/static/media/beachWithHeather.f5fbded35f16288a3423.jpeg",
+    "static/media/wedding.jpeg": "/Portfolio/static/media/wedding.87cd3978c2ed274cb0f8.jpeg",
     "static/media/absalom.jpeg": "/Portfolio/static/media/absalom.7da41f1fba764b118763.jpeg",
     "static/media/magicBook.png": "/Portfolio/static/media/magicBook.720321dc4e92ffd80008.png",
+    "static/media/allisonRavenWedding.jpeg": "/Portfolio/static/media/allisonRavenWedding.f1a8d4927375736fc67b.jpeg",
+    "static/media/kawaiBeach.jpeg": "/Portfolio/static/media/kawaiBeach.7ff8892900c66e4bf9d5.jpeg",
     "static/media/rubygame.png": "/Portfolio/static/media/rubygame.49bf3a23bc20b7abe847.png",
     "static/media/piglatin.png": "/Portfolio/static/media/piglatin.06cb0c4af0937748bb46.png",
     "static/media/tictactoe.png": "/Portfolio/static/media/tictactoe.4fe103bebab7b1cf083d.png",
     "index.html": "/Portfolio/index.html",
-    "main.e928a3e6.css.map": "/Portfolio/static/css/main.e928a3e6.css.map",
-    "main.cef4495f.js.map": "/Portfolio/static/js/main.cef4495f.js.map",
+    "main.fab3ff42.css.map": "/Portfolio/static/css/main.fab3ff42.css.map",
+    "main.a5f72512.js.map": "/Portfolio/static/js/main.a5f72512.js.map",
     "787.1ed0c42c.chunk.js.map": "/Portfolio/static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.e928a3e6.css",
-    "static/js/main.cef4495f.js"
+    "static/css/main.fab3ff42.css",
+    "static/js/main.a5f72512.js"
   ]
 }
