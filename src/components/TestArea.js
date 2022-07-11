@@ -95,7 +95,7 @@ export default function TestArea() {
     })
     const spotLightRef = useRef();
     useHelper(spotLightRef, SpotLightHelper, 'red' );
-    const { angle, slightintensity, slightposition, slightcolor, penumbra, decay, cast, power, distance} = useControls("SpotLight",{
+    const { angle, slightintensity, slightposition,targetPos, slightcolor, penumbra, decay, cast, power, distance} = useControls("SpotLight",{
       transform: folder({
         angle:0,
         slightintensity:{
@@ -111,6 +111,10 @@ export default function TestArea() {
           },
           z:{step: 0.1,
           }},
+        targetPos:{ value:[0,0,0],
+        x:{step: 0.1},
+        y:{step:0.1},
+        z:{step:0.1}},
         slightcolor: 'blue',
         penumbra: {value:0, min: 0, max: 1, step:.1},
         decay:{value:1, min: 1, max: 2, step:.1},
@@ -121,21 +125,21 @@ export default function TestArea() {
     })
     return(
       <>
-      <Box scale={ scale } position={position} rotation={rotation}>
+      {/* <Box scale={ scale } position={position} rotation={rotation}>
         <meshStandardMaterial color={color} wireframe={wireframe}/>
-      </Box>
-      <spotLight ref={spotLightRef} angle={angle}distance={distance}position={slightposition} power={power} color={slightcolor} decay={decay} intensity={slightintensity} castShadow={cast} penumbra={penumbra}/>
-      <pointLight ref={directionalLightRef} position={dlightposition} color={dlightcolor} intensity={dlightintensity} size={dlightsize}  visible={visible}
+      </Box> */}
+      <spotLight ref={spotLightRef} target-position={targetPos} angle={angle}distance={distance}position={slightposition} power={power} color={slightcolor} onUpdate={(self)=> self.target.updateMatrixWorld()} decay={decay} intensity={slightintensity} castShadow={cast} penumbra={penumbra}/>
+      {/* <pointLight ref={directionalLightRef} position={dlightposition} color={dlightcolor} intensity={dlightintensity} size={dlightsize}  visible={visible}
     shadow-mapSize-width={shadowMapwidth}
-    shadow-mapSize-height={shadowMapheight} rotation={plightrotation}/>
-      <OrthographicCamera makeDefault={false} position={location} ref={camera} rotation={rotate} zoom={zoom}
+    shadow-mapSize-height={shadowMapheight} rotation={plightrotation}/> */}
+      {/* <OrthographicCamera makeDefault={false} position={location} ref={camera} rotation={rotate} zoom={zoom}
           top={top}
           bottom={bottom}
           left={left}
           right={right}
           near={near}
           far={far}
-          />
+          /> */}
       </>
     )
   }
