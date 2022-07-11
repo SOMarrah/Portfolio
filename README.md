@@ -118,3 +118,21 @@ Repository for my portfolio build and tests.
   - Started adding lights. Just need some basic lights to render into the scene.
   - Still need a Contact camera/method set up for people to get in touch.
   - Still want to implement some easter eggs and cool user experiences.
+
+## Updates Jul 10 2022
+- worked on lighting and getting smoother shadows. I was experienced artifacts from shadows and it turns out @react-three/drei's built in softShadows() method was fighting with @react-three/fiber's normal shadow mapping. I ended up removing softShadows() in favor of three's normal shadow mapping. 
+- added images into the picture frames. 
+- added a basic landing page with an enter button. This uses a basic div overlayed on top of the 'canvas' component. the button dissapears with conditional rendering and the spellbook appears with conditional rendering. Also applied conditional rendering to the spellbook for using the camera. (wonky things happen if i leave it and someone clicks different cameras.)
+- had the spellbook stay in a static position (no matter the scale of the screen) This was done by having a div overlayed on top of the 'canvas' component. (I can build a full react website over the top of the 3d 'canvas' component which is super cool)
+
+to do:
+
+- [ ] add contact button!
+- [ ] fill book case!
+- [ ] model my dog!
+- [ ] add some chairs!
+- [ ] fix the 'project' (computer screen) styling (it is ugly)!
+- [ ] add at least 1 easter egg...
+
+Here is a blender progress picture (not yet implemented into the portfolio)
+![Blender Bookcase](screenshots/blenderbookcase.png)

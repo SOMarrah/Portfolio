@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Text from "./Text";
 
 export default function AboutTypeWriter(props){
-    const words = ["Hey there, my name is Stephen OMarrah", "Thank you for checking out my portfolio...","While I have you here for a moment, let me tell you a little about myself.", "I am a husband.", "I am creative.", "I love games.", "I love solving problems.","Please have fun exploring my portfolio.", "...Oh yea to go back click the last picture."]
+    const words = ["Hey there, my name is Stephen OMarrah. Thank you for checking out my portfolio. While I have you here for a moment, let me tell you a little about myself. I am a husband. I am creative. I love games. I love solving problems. Coding is my passion. Have fun exploring my portfolio...Before I forget, to go back click the picutres."]
     const [index, setIndex] = useState(0)
     const [subIndex, setSubIndex] = useState(0)
     const [reverse, setReverse] = useState(false)
@@ -12,11 +12,12 @@ export default function AboutTypeWriter(props){
       if(props.start === true) {
         const timeout2 = setTimeout(() => {
         setBlink((prev) => !prev);
-        }, 100);
+        }, 275);
         return () => clearTimeout(timeout2);
-      }else{
-        return console.log("not blinking");
       }
+      // else{
+      //   return null
+      // }
       }, [blink]);
 
       useEffect(() => {
@@ -43,11 +44,9 @@ export default function AboutTypeWriter(props){
            }
          const timeout = setTimeout(() => {
          setSubIndex((prev) => prev + (reverse ? -1 : 1));
-         }, 55);
+         }, 80);
          
          return () => clearTimeout(timeout);
-         }else{
-          return console.log("not typing");
          }
         
       }, [subIndex, index, reverse, props.start])
@@ -56,7 +55,7 @@ export default function AboutTypeWriter(props){
         <Text {...props}  >
             <div id="typewriter">
             <h1 >
-            {`${words[index].substring(0, subIndex)}${blink ? "|" : ""}`}
+            {`${words[index].substring(0, subIndex)}${blink ? "" : ""}`}
             </h1>
             </div>
         </Text>

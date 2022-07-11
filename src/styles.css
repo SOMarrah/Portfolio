@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'Raleway';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url(https://fonts.gstatic.com/s/raleway/v27/1Ptug8zYS_SKggPNyCAIT4ttDfCmxA.woff2) format('woff2');
+  unicode-range: U+0460-052F, U+1C80-1C88, U+20B4, U+2DE0-2DFF, U+A640-A69F, U+FE2E-FE2F;
+}
+@font-face {
+  font-family: "Trattatello"; 
+  src: url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.eot"); 
+  src: url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.woff") format("woff"), url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/05289e866fe7e1e99d27a7a31f8d3b66.svg#Trattatello") format("svg"); }
 * {
   box-sizing: border-box;
 }
@@ -11,7 +23,50 @@ body,
   margin: 0;
   padding: 0;
 }
-
+#buttonContainer{
+  position:absolute;
+  background-color: rgb(67, 69, 67);
+  height: 100vh;
+  width: 100vw;
+  z-index: 5;
+  overflow: hidden;
+}
+#enterButton{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 30em;
+  position:relative;
+  z-index: 1;
+}
+#nameContainer{
+  position:absolute;
+  z-index: 6;
+}
+#nameTitle{
+  margin: 0 auto;
+  top: 0;
+  font-family: "Raleway";
+  /* color: rgb(37,116,236); */
+  font-size: 50px;
+  text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+	color: #3e3e3e;
+	opacity: 0.3;
+}
+/* #nameTitle::after {
+  content: "Stephen O'Marrah";
+  display:flex;
+  transform:rotateX(180deg);
+  background-image:
+    linear-gradient(180deg,rgba(37,116,236,.0) 10%,rgba(37,116,236,.5));
+  -webkit-background-clip: text;
+  color: transparent;
+} */
+#canvasContainer{
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 body {
   background: #f0f0f0;
 }
@@ -27,19 +82,18 @@ body {
 #container{
   width: 8rem;
   height: 5rem;
-  position:relative;
-  opacity: 0.5;
+  position:absolute;
+  bottom: 15vh;
+  left: 5vw;
+  opacity: 1;
   transition: all 300ms;
 }
 
 .spellBook{
-  width: 8rem;
-  height: 6rem;
-  
-  text-align: center;
-  margin: 0 auto;
-  font-size: x-small;
-  
+  width: 14rem;
+  height: 12rem;
+  position:absolute;
+  z-index: 2;
 }
 
 #container:hover{
@@ -48,14 +102,14 @@ body {
 
 #spells{
   color: rgb(0, 0, 0);
-  font-size: .5em;
+  font-size: 1.2em;
   font-family: 'Trattatello', fantasy;
   font-weight:normal;
   font-style:normal;
   position: absolute;
   top: 1rem;
   left: 2rem;
-  z-index: 9;
+  z-index: 4;
   
 }
 .spellEffects{
@@ -74,10 +128,8 @@ body {
   transform: scale(2.5);
 }
 
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap");
-
 #backButton{
-  background-color: #4CAF50; /* Green */
+  background-color: #818181; /* Green */
   border: none;
   color: white;
   padding: 5px 10px;
@@ -98,7 +150,7 @@ body {
   }
   
   #projectContainer {
-    background-color: #788697;
+    /* background-color: #788697; */
     margin: 0 auto;
     position: relative;
     display: flex;
@@ -133,7 +185,6 @@ body {
     border-radius: 12px;
     height: 400px;
     object-fit: cover;
-
     margin: 0 auto;
     
   }
@@ -171,18 +222,25 @@ button:hover {
   color: #e0efff;
 }
 .card:hover{
-    box-shadow: 5px 5px 5px #0c0c0c;
+    box-shadow: 5px 5px 5px #0c0c0c99;
 }
 #typewriter{
   display: flex;
-  min-width: 300px;
-  max-width: 300px;
-    font-family: "Raleway", sans-serif;
+  min-width: 25em;
+  max-width: 25em;
+    font-family: 'fantasy';
     overflow: hidden;
     padding: 3px;
-    text-shadow:  rgb(169, 167, 167) 0 0 2px, rgb(202, 200, 200) 0 0 5px;
+    /* font-size: 50px; */
+    /* text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000; */
+    color: #d9d76f;
+    opacity: 0.5;
+    text-shadow:  rgba(169, 167, 167, 0.736) 0 0 2px, rgba(202, 200, 200, 0.379) 0 0 5px, rgba(255, 255, 255, 0.215) 0 0 10px;
 }
 
 .aboutMeImgs{
   filter: brightness(60%);
+  width: 7.2em;
+  height: 7.3em;
+  z-index: -1;
 }
