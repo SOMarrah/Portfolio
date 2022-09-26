@@ -12,6 +12,7 @@ import allisonRavenWedding from "../portfolioImages/allisonRavenWedding.jpeg"
 import beachWithHeather from "../portfolioImages/beachWithHeather.jpeg"
 import kawaiBeach from "../portfolioImages/kawaiBeach.jpeg"
 import wedding from "../portfolioImages/wedding.jpeg"
+import Home from './Home'
 
 
 
@@ -60,7 +61,7 @@ export default function Room2({ ...props }) {
       <group position={[-11.28, 8.19, 1.45]} scale={[0.11, 0.93, 1.65]}>
         <mesh geometry={nodes.Cube005.geometry} material={materials.Computer} castShadow/>
         <mesh geometry={nodes.Cube005_1.geometry} material={materials.ComputerScreen} castShadow >
-        <Project position={[.5,0,0]} rotation={[0,Math.PI/2,0]} scale={.5} cameraProject={props.cameraProject}/>
+        <Home position={[.5,0,0]} rotation={[0,Math.PI/2,0]} scale={.5} cameraProject={props.cameraProject}/>
           </mesh>
       </group>
       

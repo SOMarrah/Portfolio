@@ -146,25 +146,22 @@ body {
     width: 155px;
     border: 2px solid black;
     overflow: hidden;
-    padding: 3px;
   }
   
   #projectContainer {
-    /* background-color: #788697; */
-    margin: 0 auto;
     position: relative;
     display: flex;
     flex-wrap: nowrap;
-    flex-direction: row;
+    flex-direction: column;
     flex-basis: 20px;
     transform: scale(.20);
     transform-origin: top left;
     overflow: scroll;
-    width: 725px;
+    width: max-content;
+    height: auto;
     }
   .card:nth-child(n) {
     order: 0;
-    flex: 0 1 200px;
     align-self: auto;
     /* Change background color */
     background-color: rgba(255, 255, 255, 0.591);
@@ -174,30 +171,121 @@ body {
     padding: 8px;
     border-radius: 12px;
     transition: all ease-in-out 250ms;
-    max-width: 200px;
-    min-width: 200px;
+    min-width: 97%;
+    min-height: 100%;
     overflow: hidden;
     margin: 10px;
   }
+  .header{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: space-between;
+    align-items: center;
+    background: #aaaea8;
+    position: relative;
+    /* width: 155px; */
+    padding: 2px;
+    font-size: 2px;
+    color: white;
+  }
+.slides{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: flex-start;
+  z-index: 2;
 
+}
+.tagContainer{
+  height: fit-content;
+}
+.aboutImg{
+  height: auto;
+  width:30px;
+  border-radius: 50%;
+}
+.contactForm{
+  background: #d1cfcf;
+    padding: 2px;
+    border-radius: 2px;
+    box-shadow: 2px;
+    box-shadow: 1px 2px 1px grey;
+    width: 80px;
+    text-align: center;
+    margin-top: 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+h6 {
+  /* padding: 2px; */
+  margin:1px;
+  font-size: 5px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  user-select: none;
+  text-align: center;
+ 
+}
+.headerSelect{
+  user-select:none;
+  cursor: pointer;
+}
   .projectImage {
-    width: 100%;
-    border-radius: 12px;
-    height: 400px;
-    object-fit: cover;
+    border-radius: 2px;
+    max-width: 100px;
+    max-height: 100px;
+    min-height: 100px;
+    /* object-fit: cover; */
     margin: 0 auto;
+    float: left;
+    /* padding: 10px; */
     
   }
 /* Style div elements that have class equal to tag */
+i{
+  font-size: 8px;
+}
+.projectDesc{
+  font-size: 3px;
+  /* padding: 2px; */
+  margin: 2px;
+}
+.projectLinks{
+  cursor: pointer;
+}
+.sideBySide{
+  display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    padding: 8px;
+}
 .tag {
-    padding: 4px 2px 4px;
-    border: 1px solid #e5eaed;
-    border-radius: 50px;
-    font-size: 15px;
-    font-weight: 600;
-    color: #4b4e52;
-    word-break: break-all;
-    position: relative;
+  width: 145px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: space-around;
+  align-items: center;
+  margin: 1px;
+  height: .7em;
+  }
+  .left-arrow, .right-arrow{
+    height: 8px;
+    width: 8px;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+  }
+  .right-arrow{
+    right: 2px;
   }
   /* Style button element */
   button {
@@ -213,7 +301,56 @@ body {
     /* Button is a clickable element, therefore it should have a pointer cursor */
     cursor: pointer;
   }
+  .tooltip {
+    position: relative;
+    display: inline-block;
+  }
+  #contactButton{
+    width: 30px;
+    height: 10px;
+    font-size: 3px;
+    padding: 1px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+  }
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    /* width: 50px; */
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    margin: 0 auto;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 2px;
+  }
   
+  .tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    margin-left: -6px;
+    border-width: 6px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+    
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: .8;
+  }
 
 /* Add style when button is focused or hovered */
 button:focus,

@@ -1,8 +1,7 @@
-import Text from './Text'
-import FinallyRendered from '../images/FinallyRendered.png'
-import piglatin from '../images/piglatin.png'
-import rubygame from '../images/rubygame.png'
-import tictactoe from '../images/tictactoe.png'
+
+import { ProjectData } from './ProjectData';
+import { useState } from 'react';
+import {AiOutlineLeftCircle, AiOutlineRightCircle} from 'react-icons/ai'
 
 
 export default function Project (props) {
@@ -10,80 +9,60 @@ export default function Project (props) {
         window.open(url, '_blank', 'noopener, noreferrer')
         return console.log(`Opening a link to: ${url}`);;
       };
+     
+      const [current, setCurrent] = useState(0);
+      const length = ProjectData.length
+
+     
+      const nextSlide = () => {
+        setCurrent(current === length -1 ? 0 : current + 1)
+      }
+
+      const prevSlide = () => {
+        setCurrent(current === 0 ? length - 1 : current -1)
+      }
+      if(!Array.isArray(ProjectData) || ProjectData.length <=0){
+        return null;
+      }
+
     return(
-        <>
-        <Text {...props}>
-        <div className='project' > <button id="backButton" onClick={props.cameraProject}> Go Back</button>
-           <div id="projectContainer">
+        <div> 
+            <AiOutlineLeftCircle className='left-arrow' onClick={prevSlide}/>
+            <AiOutlineRightCircle className='right-arrow' onClick={nextSlide}/>
+            <div>
+               
                 {/* <!-- A div with card class for the card  --> */}
-                <div className="card">
-                
-                {/* <!-- A div with card__details class to hold the details in the card  --> */}
-                <div className="card__details">
-                    {/* <!-- Span with tag class for the tag --> */}
-                    <span className="tag">Html</span>
-                    <span className="tag">CSS</span>
-                    <span className="tag">JavaScript</span>
-                    <div>
-                    <span className="tag">React</span>
-                    </div>
-                    <img className='projectImage' src={FinallyRendered} alt="Portfolio"/>
-                    {/* <!-- A div with name class for the name of the card --> */}
-                    <button onClick={()=> linkInNewTab('https://github.com/SOMarrah/Portfolio')}>Portfolio</button>
-                </div>
-                </div>
-                <div className="card">
-                
-                {/* <!-- A div with card__details class to hold the details in the card  --> */}
-                <div className="card__details">
-                    {/* <!-- Span with tag class for the tag --> */}
-                    <span className="tag">Html</span>
-                    <span className="tag">CSS</span>
-                    <span className="tag">JavaScript</span>
-                    <div>
-                    <span className="tag">React</span>
-                    </div>
-                    <img className='projectImage' src={piglatin} alt="Swineslator"/>
-                    {/* <!-- A div with name class for the name of the card --> */}
-                    <button onClick={()=> linkInNewTab('https://codesandbox.io/s/swineslator-y93csv?file=/src/index.js')}>Swineslator</button>
-                </div>
-                </div>
-                <div className="card">
-                
-                {/* <!-- A div with card__details class to hold the details in the card  --> */}
-                <div className="card__details">
-                    {/* <!-- Span with tag class for the tag --> */}
-                    <span className="tag">Html</span>
-                    <span className="tag">CSS</span>
-                    <span className="tag">JavaScript</span>
-                    <div>
-                    <span className="tag">React</span>
-                    </div>
-                    <img className='projectImage' src={tictactoe} alt="Tic-Tac-Toe"/>
-                    {/* <!-- A div with name class for the name of the card --> */}
-                    <button onClick={()=> linkInNewTab('https://codesandbox.io/s/tic-tac-toe-czhrm2')}>Tic-Tac-Toe</button>
-                </div>
-                </div>
-                <div className="card">
-                
-                {/* <!-- A div with card__details class to hold the details in the card  --> */}
-                <div className="card__details">
-                    {/* <!-- Span with tag class for the tag --> */}
-                    <div>
-                    <span className="tag">Ruby</span>
-                    </div>
-                    <img className='projectImage' src={rubygame} alt="Portfolio"/>
-                    {/* <!-- A div with name class for the name of the card --> */}
-                    <button onClick={()=> linkInNewTab('https://onlinegdb.com/N4az3gOjy')}>Blue Shirt Bandit</button>
-                </div>
-                </div>
-                
-                
-                
+                {ProjectData.map((slide, index)=>{
+                    return(
+                        <div  className={index === current ? 'slides active' : null} key={index} >
+                            {index === current && 
+                                <>
+                                    <h6>{slide.title}</h6>
+                                    <div className='tag'>
+                                    {slide.languages.map((lang, index)=>{
+                                        return(
+                                           <div key={index} className='tagContainer' >
+                                            {lang}
+                                            </div>
+                                            )
+                                        })}
+                                        </div>
+                                    <div className='sideBySide'>
+                                    <img className='projectImage' src={slide.image} alt={slide.name}/>
+                                    <p className='projectDesc'>{slide.description}
+                                    <br/>
+                                    <br/>   
+                                    <a className='projectLinks' onClick={(e) =>linkInNewTab(slide.github)}>GitHub</a>
+                                    <br/>
+                                    {slide.liveLink? <a className='projectLinks'onClick={(e) =>linkInNewTab(slide.liveLink)}>Live Link</a> : null}</p>
+                                   
+                                    </div>
+                                    </>
+                         }
+                        </div>
+                    )
+                })}
             </div>
         </div>
-        </Text>
-        
-        </>
     )
 }
